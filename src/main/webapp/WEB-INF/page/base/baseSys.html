@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>应用列表</title>
+#parse("sys/header.html")
+</head>
+<body>
+<div id="rrapp">
+  	<div style="width:100%;">
+		<div class="grid-btn">
+			#if($shiro.hasPermission("base:baseSys:save"))
+			<a class="btn btn-primary  abbBtn btn-sm" href="baseSys_add.html"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;新增</a>
+			#end
+			#if($shiro.hasPermission("base:baseSys:update"))
+			<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="update"><i class="fa fa-edit"></i>&nbsp;&nbsp;修改</button>
+			#end
+			#if($shiro.hasPermission("base:baseSys:delete"))
+			<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="del"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;删除</button>
+			#end
+			#if($shiro.hasPermission("base:baseSys:changeState"))
+			<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="changeState"><i class="fa fa-edit"></i>&nbsp;&nbsp;修改状态</button>
+			#end
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+</div>
+<script src="${rc.contextPath}/js/base/baseSys.js?_${date.systemTime}"></script>
+</body>
+</html>

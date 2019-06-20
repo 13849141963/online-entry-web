@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>用户授权</title> #parse("sys/header.html")
+<style type="text/css">
+    #sysRoleTable
+    { margin-top:105px;
+      padding-left:15px
+    }
+    #userRoleTable{
+     margin-left:-250px;
+    }
+   	#left-area{
+   		margin-top:10px
+   	}
+   
+</style>
+</head>
+
+<body>
+ <div id="rrapp">
+
+		<div id="left-area" class="col-sm-4">
+			<div class="col-sm-2">
+				<span class="label label-success" style="vertical-align: bottom;">用户
+					{{user.userName}} 的用户授权</span>
+			</div>
+			<div class="roles" style="margin-top: 40px;">
+				<div class="col-sm-4">
+					<select @change="choiceSys()" id="sysSelect"
+						class="col-sm-6 form-control" style="width: 200px;">
+						<option value="">&nbsp;请选择系统</option>
+						<option v-for="sys in sysList" v-bind:value="sys.sysId"
+							@change="choiceSys">{{sys.sysName}}</option>
+					</select> 
+					<span class="label label-info" style="vertical-align: bottom;">可选角色</span>
+				</div>
+
+				<!-- <button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="back">返回</button> -->
+			</div>
+			<div id="sysRoleTable">
+				<table id="jqGridSysRole"></table>
+			</div>
+			<!-- class="roleTable" -->
+			<!-- <div id="jqGridPagerSysRole"></div> -->
+		</div>
+
+	<div class="col-sm-1">
+		    <button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="addUserRole" style="margin-top:200px;position:absolute;left:-240px">》》》》</button>
+			<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="cancel" style="margin-top:300px;position:absolute;left:-240px">《《《《</button>
+			<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="back" style="margin-top:10px;position:absolute;left:-350px">返回</button> 
+	</div>
+		
+ 	<div id="userRoleTable" class="col-sm-5">
+		<div class="roles" style="margin-top:10px;">
+		 <span class="label label-info" style="vertical-align: bottom;margin-top:200px">已选角色</span>
+		</div>
+	    <table id="jqGrid"></table>
+		<div id="jqGridPager"></div>
+	</div>
+	
+</div>
+	<script
+		src="${rc.contextPath}/js/base/baseUser_role.js?_${date.systemTime}"></script>
+</body>
+</html>

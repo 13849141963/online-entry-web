@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>编辑管理员</title>
+#parse("sys/header.html")
+</head>
+<body>
+<div class="panel panel-primary" id="rrapp" v-cloak>
+	<div class="panel-heading">{{title}}</div>
+	<form class="form-horizontal">
+<!-- 		<div class="form-group">
+		   	<div class="col-sm-2 control-label">员工ID</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.empId" placeholder=""/>
+		    </div>
+		</div> -->
+		
+<!-- 		<div class="form-group" v-if="!user.userId">
+		   	<div class="col-sm-2 control-label">雇员唯一号</div>
+		   	<div class="col-sm-10">
+		      <input type="password" class="form-control" v-model="emp.uniquNo" placeholder="密码"/>
+		    </div>
+		</div> -->
+		
+<!-- 		<div class="form-group" v-if="!user.userId">
+		   	<div class="col-sm-2 control-label">姓名</div>
+		   	<div class="col-sm-10">
+		      <input type="password" class="form-control" v-model="emp.empName" placeholder="确认密码"/>
+		    </div>
+		</div> -->
+		
+<!-- 		<div class="form-group">
+		   	<div class="col-sm-2 control-label">雇员唯一号</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.uniquNo" placeholder=""/>
+		    </div>
+		</div> -->
+		
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">姓名</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.empName" placeholder=""  disabled="disabled"/>
+		    </div>
+		</div>
+		
+<!--  		<div class="form-group">
+		   	<div class="col-sm-2 control-label">证件类型</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.idType" placeholder=""/>
+		    </div>
+		</div>  -->
+		
+<!-- 		<div class="form-group">
+		   	<div class="col-sm-2 control-label">性别</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.gender" placeholder=""/>
+		    </div>
+		</div> -->
+				
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">证件号码</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.idCode" placeholder=""  disabled="disabled"/>
+		    </div>
+		</div>
+		
+<!-- 		<div class="form-group">
+		   	<div class="col-sm-2 control-label">证件号码</div>
+		   	<div class="col-sm-10">
+			   	<label v-for="role in selectRoleList" class="checkbox-inline">
+				  <input type="checkbox" id="roleIdList" name="roleIdList" :value="role.roleId" v-model="user.roleIdList">{{role.roleName}}
+				</label>
+			</div>
+		</div> -->
+		
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">手机号</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.mobile" placeholder=""  disabled="disabled"/>
+		    </div>
+		</div>
+		
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">邮箱</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.email" placeholder=""  disabled="disabled"/>
+		    </div>
+		</div>
+		
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">出生日期</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.birthDate" placeholder=""  disabled="disabled"/>
+		    </div>
+		</div>
+				
+<!-- 		<div class="form-group">
+		   	<div class="col-sm-2 control-label">民族</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.nation" placeholder=""/>
+		    </div>
+		</div> -->
+				
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">国籍</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.country" placeholder=""  disabled="disabled"/>
+		    </div>
+		</div>
+				
+ 		<div class="form-group">
+		   	<div class="col-sm-2 control-label">授权标识</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.authFlag" placeholder=""  disabled="disabled"/>
+		    </div>
+		</div> 
+						
+<!-- 		<div class="form-group">
+		   	<div class="col-sm-2 control-label">访问token</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.accessToken" placeholder=""/>
+		    </div>
+		</div> -->
+						
+<!-- 		<div class="form-group">
+		   	<div class="col-sm-2 control-label">token获取时间</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.tokenTime" placeholder=""/>
+		    </div>
+		</div> -->
+						
+<!-- 		<div class="form-group">
+		   	<div class="col-sm-2 control-label">创建人</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.creator" placeholder=""/>
+		    </div>
+		</div> -->
+						
+<!-- 		<div class="form-group">
+		   	<div class="col-sm-2 control-label">创建人名称</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.creatorName" placeholder=""/>
+		    </div>
+		</div> -->
+								
+<!-- 		<div class="form-group">
+		   	<div class="col-sm-2 control-label">创建时间</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="emp.createTime" placeholder=""/>
+		    </div>
+		</div> -->
+		
+<!-- 		<div class="form-group">
+			<div class="col-sm-2 control-label">状态</div> 
+			<label class="radio-inline">
+			  <input type="radio" name="status" value="0" v-model="user.status"/> 禁用
+			</label>
+			<label class="radio-inline">
+			  <input type="radio" name="status" value="1" v-model="user.status"/> 正常
+			</label>
+		</div> -->
+<!-- 		<div class="form-group">
+		   	<div class="col-sm-2 control-label">管辖系统</div>
+		   	<div class="col-sm-10">
+			   	<label v-for="corp in selectCropList" class="checkbox-inline" >
+				  <input type="checkbox" id="sysIdList" name="sysIdList" :value="corp.sysId" v-model="user.sysIdList">{{corp.sysName}}
+				</label>
+			</div>
+		</div> -->
+		
+		<div class="form-group">
+			<div class="col-sm-2 control-label"></div> 
+<!-- 			<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/> -->
+			&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="back" value="返回"/>
+		</div>
+	</form>
+</div>
+<script src="${rc.contextPath}/js/sys/emp_add.js?_${date.systemTime}"></script>
+</body>
+</html>

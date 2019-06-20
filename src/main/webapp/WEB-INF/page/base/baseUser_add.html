@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>编辑用户</title> #parse("sys/header.html")
+</head>
+<body>
+	<div class="panel panel-primary" id="rrapp" v-cloak>
+		<div class="panel-heading">{{title}}</div>
+		<form class="form-horizontal form_newline col-sm-12">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<div class="col-sm-2 control-label">
+						登录账号<font color="red">*</font>
+					</div>
+					<div class="col-sm-10" v-if="user.userId">{{user.loginName}}</div>
+					<div class="col-sm-10" v-if="!user.userId">
+						<input type="text" class="form-control" v-model="user.loginName"
+							placeholder="登录账号" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-2 control-label">
+						用户姓名<font color="red">*</font>
+					</div>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" v-model="user.userName"
+							placeholder="用户姓名" />
+					</div>
+				</div>
+
+				<div class="form-group" v-if="!user.userId">
+					<div class="col-sm-2 control-label">密码</div>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" v-model="user.userPwd"
+							placeholder="密码" />
+					</div>
+				</div>
+
+				<!-- <div class="form-group">
+			   	<div class="col-sm-2 control-label">密码过期时间</div>
+			   	<div class="col-sm-10">
+			      <input type="date" class="form-control" v-model="user.passwordTime" placeholder="密码过期时间"/>
+			    </div>
+			</div> -->
+
+				<div class="form-group">
+					<div class="col-sm-2 control-label">
+						所属机构<font color="red">*</font>
+					</div>
+					<div class="col-sm-10">
+						<select v-model="user.orgId" class="col-sm-12 form-control">
+							<option v-for="org in orgList" v-bind:value="org.orgId">{{org.orgName}}</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-2 control-label">居住地址</div>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" v-model="user.address"
+							placeholder="居住地址" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-2 control-label">邮政编码</div>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" v-model="user.postCode"
+							placeholder="邮政编码" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-2 control-label">用户手机</div>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" v-model="user.phone"
+							placeholder="用户电话" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-2 control-label"></div>
+					<input type="button" class="btn btn-primary" @click="saveOrUpdate"
+						value="确定" /> &nbsp;&nbsp;<input type="button"
+						class="btn btn-warning" @click="back" value="返回" />
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<div class="col-sm-2 control-label">用户手机</div>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" v-model="user.mobile"
+							placeholder="用户手机" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-2 control-label">用户邮箱</div>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" v-model="user.email"
+							placeholder="用户邮箱" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-2 control-label">用户性别</div>
+					<label v-for="sex in sexList" class="radio-inline"> <input
+						type="radio" name="sex" :value="sex.dictCode" v-model="user.sex">{{sex.dictName}}
+					</label>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-2 control-label">用户描述</div>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" v-model="user.remark"
+							placeholder="用户描述" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-2 control-label">员工内部编号</div>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" v-model="user.userNumber"
+							placeholder="用户员工内部编号" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-2 control-label">用户状态</div>
+					<div class="col-sm-10">
+						<label v-for="userStatus in userStatusList" class="radio-inline">
+							<input type="radio" name="userStatus"
+							:value="userStatus.dictCode" v-model="user.userStatus">{{userStatus.dictName}}
+						</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-2 control-label">用户类型</div>
+					<div class="col-sm-10">
+						<label v-for="userType in userTypeList" class="radio-inline">
+							<input type="radio" name="userType" :value="userType.dictCode"
+							v-model="user.userType">{{userType.dictName}}
+						</label>
+					</div>
+				</div>
+			</div>
+
+		</form>
+	</div>
+	<script
+		src="${rc.contextPath}/js/base/baseUser_add.js?_${date.systemTime}"></script>
+</body>
+</html>

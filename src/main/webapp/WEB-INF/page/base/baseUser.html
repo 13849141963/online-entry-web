@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>用户列表</title>
+#parse("sys/header.html")
+</head>
+<body>
+<div id="rrapp">
+	<div style="width:20%; float:left;">
+		<div id="orgLayer" style="display: none;padding:10px;">
+		<ul id="orgTree" class="ztree"></ul>
+		</div>
+	</div>
+　　　<div style="width:80%; float:right;">
+
+	   
+	<div class="grid-btn">
+		<div class="form-group col-sm-2">
+			<input type="text" class="form-control" id="userName" placeholder="用户姓名">
+		</div>
+		<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="query"><i class="fa fa-edit"></i>&nbsp;&nbsp;查询</button>
+		#if($shiro.hasPermission("base:baseUser:save"))
+		<a class="btn btn-primary  abbBtn btn-sm" href="baseUser_add.html"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;新增</a>
+		#end
+		
+		#if($shiro.hasPermission("base:baseUser:update"))
+		<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="update"><i class="fa fa-edit"></i>&nbsp;&nbsp;修改</button>
+		#end
+		
+		#if($shiro.hasPermission("base:baseUser:delete"))
+		<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="del"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;删除</button>
+		#end
+		
+		#if($shiro.hasPermission("base:baseUser:open"))
+		<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="open"><i class="fa fa-edit"></i>&nbsp;&nbsp;开启</button>
+		#end
+		#if($shiro.hasPermission("base:baseUser:close"))
+		<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="close"><i class="fa fa-edit"></i>&nbsp;&nbsp;关闭</button>
+		#end
+		#if($shiro.hasPermission("base:baseUser:clock"))
+		<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="clock"><i class="fa fa-edit"></i>&nbsp;&nbsp;锁定</button>
+		#end
+		
+		#if($shiro.hasPermission("base:baseUser:userRole"))
+		<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="changeUserRole"><i class="fa fa-edit"></i>&nbsp;&nbsp;用户授权</button>
+		#end
+		
+		#if($shiro.hasPermission("base:baseUser:changePwd"))
+		<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="changePwd"><i class="fa fa-edit"></i>&nbsp;&nbsp;重置密码</button>
+		#end
+		
+	</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+</div>
+
+  <!-- 修改密码 -->
+<div id="changePwdLayer" style="display: none;">
+	<form class="form-horizontal">
+	<div class="form-group">
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">新密码</div>
+		   	<div class="col-sm-10">
+		      <input type="password" id="newPassword" class="form-control" v-model="newPassword" placeholder="新密码"/>
+		    </div>
+		</div>
+	</div>
+	</form>
+</div>
+
+<script src="${rc.contextPath}/js/base/baseUser.js?_${date.systemTime}"></script>
+</body>
+</html>

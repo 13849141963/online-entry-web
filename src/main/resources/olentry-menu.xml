@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<menu-root id="menu-root">
+	<menu icon="fa fa-cog" menuId="1" name="系统管理" type="0" url="" perms="sys">
+		<!-- <menu icon="fa fa-user" menuId="101" name="员工授权查询" type="1" url="sys/emp.html" perms="sys:emp"/>
+		<menu icon="fa fa-th-list" menuId="105" name="数据状态统计" type="1" url="sys/tongji.html" perms="sys:tongji"/>	
+		<menu icon="fa fa-th-list" menuId="102" name="体检信息管理" type="1" url="sys/exam.html" perms="sys:exam"/>
+ 	<menu icon="fa fa-institution" menuId="103" name="体检报告查询" type="1" url="sys/report.html" perms="base:role"/>
+ 		<menu icon="fa fa-th-list" menuId="104" name="KJD接口日志管理" type="1" url="sys/kjdInterfaceLog.html" perms="sys:kjdInterfaceLog"/>
+		<menu icon="fa fa-th-list" menuId="105" name="体检报告数据管理" type="1" url="sys/phReportJsonData.html" perms="sys:phReportJsonData"/> -->
+		<menu icon="fa fa-th-list" menuId="105" name="入职任务管理" type="1" url="sys/entryTaskJsonData.html" perms="sys:entryTaskJsonData"/>
+		<menu icon="fa fa-th-list" menuId="101" name="入职规则管理" type="1" url="sys/parksonSettingData.html" perms="sys:parksonSettingData"/>
+		<menu icon="fa fa-th-list" menuId="102" name="查询入职员工" type="1" url="sys/queryEntryemployees.html" perms="sys:queryEntryemployeesData"/>
+		<menu icon="fa fa-th-list" menuId="103" name="查询户口卡信息以及审核状态" type="1" url="sys/queryHouseholdInfoAuditState.html" perms="sys:queryHouseholdInfoAuditStateData"/>
+		<menu icon="fa fa-th-list" menuId="105" name="员工入职任务管理" type="1" url="sys/empTaskJsonData.html" perms="sys:empTaskJsonData"/>
+	</menu> 
+	<!-- 
+	<menu icon="fa fa-users" menuId="10" name="用户管理" type="0" url="" perms="user:manage">
+		<menu icon="fa fa-institution" menuId="11" name="机构管理" type="1" url="base/org.html" perms="base:org"/>
+		<menu icon="fa fa-user" menuId="12" name="用户管理" type="1" url="base/baseUser.html" perms="base:user"/>
+	</menu>
+	<menu icon="fa fa-key" menuId="20" name="权限管理" type="0" url="" perms="auth:manage">
+		<menu icon="fa fa-rocket" menuId="21" name="应用管理" type="1" url="base/baseSys.html" perms="base:sys"/>
+		<menu icon="fa fa-user-secret" menuId="22" name="角色管理" type="1" url="base/role.html" perms="base:role"/>
+		<menu icon="fa fa-toggle-on" menuId="23" name="权限管理" type="1" url="base/function.html" perms="base:function"/>
+	</menu> 
+	-->
+</menu-root>

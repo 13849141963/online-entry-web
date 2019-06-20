@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>管理员列表</title>
+#parse("sys/header.html")
+</head>
+<body>
+<div id="rrapp">
+<form class="form-inline">	
+	<div class="grid-btn">
+		<div class="form-group">
+		
+			<label for="exapOrgName">体检机构:</label>
+			<select class="form-control" id="exapOrgName" placeholder="体检机构" style="width:150px;">
+				<option value="">全部</option>
+				<option v-for="obj in exapOrgs" :value="obj.exapOrgName">
+					{{obj.exapOrgName}}
+				</option>
+			</select>
+<!-- 			<input type="text" class="form-control" id="exapOrgName" placeholder="体检机构" style="width:150px;"> -->
+		</div>	
+		<div class="form-group" >
+  			<label for="createTimeBegin">预约时间:</label>
+			<input type="text" class="form-control" id="createTimeBegin" placeholder="起始时间" >
+		</div>	
+		<div class="input-group">
+  			<input type="text" class="form-control" id="createTimeEnd" placeholder="截止时间" >
+		</div>	
+		<button style="margin-top: 2px;margin-left:15px" type="button" class="btn btn-primary abbBtn btn-sm" @click="queryByName" ><i class="fa fa-search"></i>&nbsp;&nbsp;查询</button>
+	</div>
+	</form>
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
+
+<script src="${rc.contextPath}/statics/libs/moment.js"></script>
+<script src="${rc.contextPath}/statics/libs/daterangepickerNew.js"></script> 
+<script src="${rc.contextPath}/js/sys/tongji.js?_${date.systemTime}"></script> 
+</body>
+</html>

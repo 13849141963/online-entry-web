@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>API日志查询</title>
+#parse("sys/header.html")
+<link rel="stylesheet" href="/idm-web/statics/css/daterangepicker-bs3.css">
+<style>
+.layui-layer-molv .layui-layer-title {
+    background: #4476A7;
+    color: #fff;
+    border: none;
+}
+</style>
+</head>
+<body>
+<div id="rrapp">
+	<div class="grid-btn">
+		<input style="width: 250px;float:left;margin-right: 15px;" type="text" class="form-control" id="userName" placeholder="用户姓名">
+		<div class="input-prepend input-group">
+	    	<span class="add-on input-group-addon">
+		    	<i class="glyphicon glyphicon-calendar fa fa-calendar">
+		    	</i>
+	    	</span>
+	    	<input type="text" readonly="readonly" style="width: 310px" name="reservation" id="reservation" class="form-control" value="请选择" />
+	    	<button style="margin-left: 15px;margin-top: 2px;" type="button" class="btn btn-primary abbBtn btn-sm" @click="queryByName"><i class="fa fa-search"></i>&nbsp;&nbsp;查询</button>
+    	 </div>
+    </div>
+	</div>
+	<!--<div id="detailInfo" style="display: none;margin:20px 20px 0px 20px;">
+		<div class="form-group">
+		     <textarea class="form-control" rows="3" id="logMsgResult" style="height: 280px;" readonly="readonly"></textarea> 
+		</div>
+	</div>  -->
+	
+	
+	
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
+<script src="${rc.contextPath}/js/base/apiLog.js?_${date.systemTime}"></script>  
+<script src="/idm-web/statics/libs/moment.min.js"></script>
+<script src="/idm-web/statics/libs/daterangepicker.js"></script>
+</body>
+</html>

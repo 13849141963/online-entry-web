@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>编辑功能</title>
+#parse("sys/header.html")
+</head>
+<body>
+<div class="panel panel-primary" id="rrapp" v-cloak>
+	<div class="panel-heading">{{title}}</div>
+	<form class="form-horizontal">
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">功能名称	<font color="red">*</font></div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="func.functionName" placeholder="功能名称"/>
+		    </div>
+		</div>
+		<!-- <div class="form-group">
+			<div class="col-sm-2 control-label">角色状态</div>
+			<div class="col-sm-10">
+				<select class="form-control" v-model="selected">
+					<option v-for="baseRoleStatus in baseRoleStatusList" :value="baseRoleStatus.roleStatueCode">{{baseRoleStatus.roleStatueName}}</option>
+				</select>
+			</div>
+		</div> -->
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">权限标识</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="func.perm" placeholder="功能权限内容"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">功能url</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="func.url" placeholder="功能url"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">功能类型	<font color="red">*</font></div>
+		   	<div class="col-sm-10">
+		       <select class="form-control" v-model="selected">
+					<option v-for="baseFunctionType in baseFunctionTypeList" :value="baseFunctionType.functionTypeCode">{{baseFunctionType.functionTypeName}}</option>
+				</select>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">父功能	<font color="red">*</font></div>
+		   	<div class="col-sm-10">
+		      <input readOnly="true" type="text" class="form-control" v-model="func.parentName" placeholder="父功能"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">所属系统	<font color="red">*</font></div>
+		   	<div class="col-sm-10">
+		      <input readOnly="true" type="text" class="form-control" v-model="func.sysName" placeholder="系统"/>
+		    </div>
+		</div>
+		<!-- <div class="form-group">
+		   	<div class="col-sm-2 control-label">操作人</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="func.operator" placeholder="操作人"/>
+		    </div>
+		</div>
+		 -->
+		
+		<!-- <div class="form-group">
+			<div class="col-sm-2 control-label">排序号</div> 
+			<div class="col-sm-10">
+				<input type="number" placeholder="排序号" class="form-control" v-model="role.roleOrder">
+			</div>
+		</div> -->
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">描述</div>
+		   	<div class="col-sm-10">
+		     <textarea class="form-control" rows="3" v-model="func.remark"></textarea> 
+		    </div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-2 control-label"></div> 
+			<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
+			&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="back" value="返回"/>
+		</div>
+	</form>
+</div>
+
+<script src="${rc.contextPath}/js/base/function_add.js?_${date.systemTime}"></script>
+</body>
+</html>

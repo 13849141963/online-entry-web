@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>编辑公司</title>
+#parse("sys/header.html")
+</head>
+<body>
+<div class="panel panel-default" id="rrapp" v-cloak>
+	<div class="panel-heading">{{title}}</div>
+	<form class="form-horizontal">		
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">公司名称</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="corp.companyName" placeholder="公司名称"/>
+		    </div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-2 control-label">上级公司</div>
+		   	<div class="col-sm-10">
+		       <input type="text" class="form-control" style="cursor:pointer;" v-model="corp.parentName" @click="corpTree" readonly="readonly" placeholder="请选择"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">公司简称</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="corp.shortName" placeholder="公司简称"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">描述</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="corp.description" placeholder="描述"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">所在地区</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="corp.corpArea" placeholder="所在地区"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">详细地址</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="corp.officeAddr" placeholder="详细地址"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">公司网址</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="corp.website" placeholder="公司网址"/>
+		    </div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-2 control-label"></div> 
+			<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
+			&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="back" value="返回"/>
+		</div>
+	</form>
+</div>
+
+<!-- 选择机构 -->
+<div id="corpLayer" style="display: none;padding:10px;">
+	<ul id="corpTree" class="ztree"></ul>
+</div>
+
+<script src="${rc.contextPath}/js/base/corp_add.js?_${date.systemTime}"></script>
+</body>
+</html>

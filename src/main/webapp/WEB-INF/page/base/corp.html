@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>公司管理</title>
+#parse("sys/header.html")
+<style>
+.ui-jqgrid tr.jqgrow td {
+text-overflow : ellipsis;
+}
+</style>
+</head>
+<body>
+<div id="rrapp">
+	<div style="width:20%; float:left;">
+		<div id="corpLayer" style="display: none;padding:10px;">
+		<ul id="corpTree" class="ztree"></ul>
+		</div>
+	</div>
+　　　<div style="width:80%; float:right;">
+		<div class="grid-btn">
+			#if($shiro.hasPermission("base:corp:save"))
+			<a class="btn btn btn-primary  abbBtn btn-sm" href="corp_add.html"><i class="fa fa-plus-square"></i>&nbsp;&nbsp;新增</a>
+			#end
+			#if($shiro.hasPermission("base:corp:update"))
+			<button type="button"  class="btn btn btn-primary  abbBtn btn-sm" @click="update"><i class="fa fa-edit"></i>&nbsp;&nbsp;修改</button>
+			#end
+			#if($shiro.hasPermission("base:corp:delete"))
+			<button type="button" class="btn btn btn-primary  abbBtn btn-sm" @click="del"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;删除</button>
+			#end
+			#if($shiro.hasPermission("base:corp:manageOrg"))
+			<button type="button" class="btn btn btn-primary" @click="manageOrg">管理机构</button>
+			#end
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+</div>
+<script src="${rc.contextPath}/js/base/corp.js?_${date.systemTime}"></script>
+</body>
+</html>

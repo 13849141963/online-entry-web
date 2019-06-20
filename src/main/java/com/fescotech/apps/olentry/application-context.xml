@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-4.2.xsd">  
+	<bean id="propertyConfigurer" class="com.fesco.pafa.util.CustomizedPropertyConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:idmconfig.properties</value>
+			</list>
+		</property>
+	</bean>
+	 <!-- 配置API调用 -->
+   <bean class="com.fescotech.common.apistub.ApiStubScannerConfigurer">
+        <property name="basePackage"     value="com.fescotech.apps.olentry.admin.api" />
+        <property name="annotationClass" value="com.fescotech.common.apistub.annotation.ApiStub" />
+        <property name="apiProvider" ref="apiProvider"/>
+    </bean>
+    <bean id="apiProvider" class="com.fescotech.common.apistub.provider.impl.DefaultApiProvider">
+        <property name="apiUrls">
+        	<map>
+        		<entry key="inswebapi.queryInsStatus" value="${inswebapi.rest.url}/inswebapi/queryIntoInfo.do"/>
+       	 	</map>
+        </property>
+    </bean>
+    <!-- 开放平台环境配置 -->
+    <bean id="openProvider" class="com.fescotech.common.apistub.provider.impl.OpenApiProvider">
+        <property name="openApiUrl" value="${openapi.url}" /> 
+        <property name="appKey" value="${openapi.appKey}" /> 
+        <property name="appSecret" value="${openapi.appSecret}" />        
+    </bean>
+	<import resource="classpath:com/fescotech/apps/olentry/web/spring-shiro.xml"/>
+</beans>

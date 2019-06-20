@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>角色管理</title>
+#parse("sys/header.html")
+</head>
+<body>
+<div id="rrapp">
+	<form class="form-inline">
+	<div class="grid-btn">
+		<div class="form-group">
+			<label for="empName">员工姓名:&#12288&#12288</label>
+			<input type="text" class="form-control" id="empName" placeholder="员工姓名" >
+		</div>	
+		<div class="form-group">
+			<label for="idCode">身份证号:</label>
+			<input type="text" class="form-control" id="idCode" placeholder="身份证号" >
+		</div>	
+		<div class="form-group">
+			<label for="exapOrgName">体检机构名称:</label>
+			<select class="form-control" id="exapOrgName" placeholder="体检机构名称" style="width: 196px">
+				<option value="">全部</option>
+				<option v-for="obj in exapOrgs" :value="obj.exapOrgName">
+					{{obj.exapOrgName}}
+				</option>
+			</select>
+		</div>
+	</div>	
+	<div class="grid-btn">
+		<div class="form-group">
+			<label for="examStatus">体检报告状态:</label>
+			<select class="form-control" id="examStatus" style="width: 196px">
+			<option value="">全部</option>
+			<option v-for="obj in examStatus" :value="obj.key">
+				{{ obj.value }}
+			</option>
+<!-- 		    	<option value="">状态</option>
+				<option value="">全部</option>
+				<option value="1">已预约</option>
+				<option value="2">取消预约 </option>
+				<option value="3">已回传</option>
+				<option value="4">已推送</option>
+				<option value="5">分析完成</option> -->
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="companyName">所属公司:</label>
+			<input type="text" class="form-control" id="companyName" placeholder="所属公司" >
+		</div>
+		<div class="form-group">
+			<label for="examNo">体检卡号:&#12288&#12288</label>
+			<input type="text" class="form-control" id="examNo" placeholder="体检卡号" >
+		</div>
+	</div>
+	<div class="grid-btn">
+		<div class="form-group">
+			<label for="appointmentTimeBegin">预约时间:&#12288&#12288</label>
+  			<input type="text" class="form-control" id="appointmentTimeBegin" placeholder="起始时间" > 
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" id="appointmentTimeEnd" placeholder="结束时间" >
+		</div>				
+		<div class="form-group">
+  			<label for="createTimeBegin">创建时间:&#12288&#12288</label>
+			<input type="text" class="form-control" id="createTimeBegin" placeholder="起始时间" >
+		</div>		
+		<div class="form-group">
+  			<input type="text" class="form-control" id="createTimeEnd" placeholder="结束时间" >
+		</div>
+	</div>
+	<div class="grid-btn">		
+		<div class="form-group">
+  			<label for="uploadReportTimeBegin">上传时间:&#12288&#12288</label>
+  			<input type="text" class="form-control" id="uploadReportTimeBegin" placeholder="起始时间" > 
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" id="uploadReportTimeEnd" placeholder="结束时间" >
+		</div>				
+		<div class="form-group">
+  			<label for="getDataTimeBegin">取回结果时间:</label>
+			<input type="text" class="form-control" id="getDataTimeBegin" placeholder="起始时间" >
+		</div>		
+		<div class="form-group">
+  			<input type="text" class="form-control" id="getDataTimeEnd" placeholder="结束时间" >
+		</div>
+		<button style="margin-top: 2px;margin-left:15px" type="button" class="btn btn-primary abbBtn btn-sm" @click="queryByName" ><i class="fa fa-search"></i>&nbsp;&nbsp;查询</button>
+		<button type="button"  class="btn btn-primary  abbBtn btn-sm" @click="update"><i class="fa fa-edit"></i>&nbsp;&nbsp;查看</button>
+		<button type="button" class="btn btn-primary btn-sm btn-toggledisabled deleteBtn" @click="exp"><i class="fa fa-file-excel-o"></i>&nbsp;&nbsp;导出</button>
+		<button type="button" class="btn btn-primary btn-sm btn-toggledisabled deleteBtn" @click="downForIds"><i class="fa fa-file-excel-o"></i>&nbsp;&nbsp;批量下载</button>
+	</div>
+	</form>
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
+
+<script src="${rc.contextPath}/statics/libs/moment.js"></script>
+<script src="${rc.contextPath}/statics/libs/daterangepickerNew.js"></script>  
+<script src="${rc.contextPath}/js/base/exam.js?_${date.systemTime}"></script>  
+
+</body>
+</html>

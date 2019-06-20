@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>查询入职员工的基本信息</title>
+#parse("sys/header.html")
+
+
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/statics/css/bootstrap-select.min.css">
+</head>
+<body>
+<div id="rrapp">
+	<form class="form-inline">
+	<div class="grid-btn">
+	</div>
+		<div class="grid-btn">
+					<div class="form-group">
+			 			<label for="creator">员工名称:</label>
+						<input type="text" v-model="empName" class="form-control" placeholder="员工名称" >
+					</div> 
+					<div class="form-group">
+			 			<label for="creator">身份证号:</label>
+						<input type="text" v-model="idCode" class="form-control" placeholder="员工名称" >
+					</div> 
+					<div class="form-group">
+			 			<label for="creator">手机号:</label>
+						<input type="text" v-model="mobile" class="form-control" placeholder="手机号" >
+					</div> 
+		<button style="margin-top: 2px;margin-left:15px" type="button" class="btn btn-primary abbBtn btn-sm" @click="queryByName" ><i class="fa fa-search"></i>&nbsp;&nbsp;查询</button>
+	</div>
+	</form> 
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div> 
+</div>
+
+<script src="${rc.contextPath}/statics/libs/moment.js"></script>
+<script src="${rc.contextPath}/statics/libs/daterangepickerNew.js"></script>  
+<script src="${rc.contextPath}/js/sys/queryEntryemployeesData.js?_${date.systemTime}"></script>  
+<script src="${rc.contextPath}/statics/libs/bootstrap-select.min.js"></script>
+</body>
+</html>

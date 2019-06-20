@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>编辑角色</title>
+#parse("sys/header.html")
+</head>
+<body>
+<div class="panel panel-primary" id="rrapp" v-cloak>
+	<div class="panel-heading">{{title}}</div>
+	<form class="form-horizontal pull-left">
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label" >员工ID	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.empId" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label" >预约标识	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.appointId" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label" >体检机构ID	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.exapOrgId" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label" >体检机构名称	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.exapOrgName" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label" >数据状态	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.examStatus" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label" >所属公司	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.companyName" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label" >体检年度	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.examYear" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>		
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label" >体检卡号	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.examNo" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>		
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label" >授权标识	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.authFlag" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label" >体检报告ID	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.reportId" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label" >体检报告分析ID	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.reportAnaId" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label" >体检套餐	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.examCombo" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label" >体检时间	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.examTime" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+
+	</form>
+	<form class="form-horizontal pull-left">
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">预约时间	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.appointmentTime" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">取消时间	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.cancelTime" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">回传时间	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.reportBackTime" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">上传员工标识	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.uploadEmpId" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">上传时间	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.uploadReportTime" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">取回结果时间	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.getDataTime" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">创建时间	</div>
+		   	<div class="col-sm-10">
+		      <input type="text" class="form-control" v-model="exam.createTime" placeholder="" disabled="disabled"/>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">体检结果	</div>
+		   	<div class="col-sm-10">
+		   	<textarea class="form-control" style="height:132px" v-model="phReportJsonData.remark" placeholder="" disabled="disabled">
+		   	
+		   	</textarea>
+		    </div>
+		</div>
+		<div class="form-group">
+		   	<div class="col-sm-2 control-label">体检建议	</div>
+		   	<div class="col-sm-10">
+		   	<textarea class="form-control" style="height:132px" v-model="phReportJsonData.suggest" placeholder="" disabled="disabled">
+		   	
+		   	</textarea>
+		   	</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-2 control-label"></div> 
+<!-- 			<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/> -->
+			&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="back" value="返回"/>
+		</div> 
+	</form>
+</div>
+
+<script src="${rc.contextPath}/js/base/exam_add.js?_${date.systemTime}"></script>
+</body>
+</html>

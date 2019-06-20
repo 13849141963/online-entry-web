@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>入职规则管理</title>
+#parse("sys/header.html")
+
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/statics/css/bootstrap-select.min.css">
+</head>
+<body>
+<div id="rrapp">
+	<form class="form-inline">
+	<div class="grid-btn">
+	</div>
+<!--  	<div class="grid-btn">
+ 		<div class="form-group">
+			<label for="logId">logId:</label>
+			<input type="text" class="form-control" id="logId" placeholder="logId" >
+		</div>
+ 		<div class="form-group">
+			<label for="remark">remark:</label>
+			<input type="text" class="form-control" id="remark" placeholder="remark" >
+		</div>
+ 		<div class="form-group">
+			<label for="suggest">suggest:</label>
+			<input type="text" class="form-control" id="suggest" placeholder="suggest" >
+		</div>	
+		<div class="form-group">
+			<label for="userName">userName:</label>
+			<input type="text" class="form-control" id="userName" placeholder="userName" >
+		</div>
+		<div class="form-group">
+			<label for="instGroupId">instGroupId:</label>
+			<input type="text" class="form-control" id="instGroupId" placeholder="instGroupId" >
+		</div>
+	</div> -->
+ 	<!-- <div class="grid-btn">
+		<div class="form-group">
+			<label for="siginDateBegin">体检时间:</label>
+			<input type="text" class="form-control" id="siginDateBegin" placeholder="起始时间" >
+		</div>		
+		<div class="form-group">
+  			<input type="text" class="form-control" id="siginDateEnd" placeholder="结束时间" >
+		</div>
+		<div class="form-group">
+			<label for="instName">体检机构名称:</label> 
+			<select id="instName" class=" form-control"  placeholder="体检机构名称"  data-live-search="true" style="width: 194px">
+				<option value="">全部</option>
+				<option v-for="obj in exapOrgs" :value="obj.exapOrgName">
+					{{obj.exapOrgName}}
+				</option>
+ 			</select>
+		</div>
+	</div>
+ 	<div class="grid-btn">		
+ 		<div class="form-group">
+ 			<label for="createTimeBegin">上传时间:</label>
+			<input type="text" class="form-control" id="createTimeBegin" placeholder="起始时间" >
+		</div>		
+		<div class="form-group">
+  			<input type="text" class="form-control" id="createTimeEnd" placeholder="结束时间" >
+		</div> -->
+		<div class="grid-btn">
+					<!--  <div class="form-group">
+			 			<label for="creator">户口所在地:</label>
+						<input type="text" class="form-control" id="householdArea" placeholder="户口所在地" >
+					</div> 
+					 <div class="form-group">
+			 			<label for="creator">户别:</label>
+						<input type="text" class="form-control" id="householdType" placeholder="户别" >
+					</div> 
+					 <div class="form-group">
+			 			<label for="creator">人员类型:</label>
+						<input type="text" class="form-control" id="personType" placeholder="人员类型" >
+					</div> 
+					 <div class="form-group">
+			 			<label for="creator">人员职务:</label>
+						<input type="text" class="form-control" id="postType" placeholder="人员职务" >
+					</div>  -->
+			<!-- <div style="height: 30px;width: 80px;margin-left: 50px;margin-top: 10px;margin-right: 10px;float: left;">户口所在地:</div> -->
+			<label for="creator">户口所在地:</label>
+			<select v-model="selecteda" class="form-control">  
+					<option value="">请选择</option>
+        			<option v-for="home in homes" :value="home.value">{{home.text}}</option>  
+   			</select>  
+   			<label for="creator">户别:</label>
+   			<select v-model="selectedb" class="form-control">  
+					<option value="">请选择</option>
+        			<option v-for="hegoto in hegotos" :value="hegoto.duty">{{hegoto.name}}</option>  
+   			</select>  
+   			<label for="creator">人员类型:</label>
+   			<select v-model="selectedc"  class="form-control"> 
+   					<option value="">请选择</option> 
+        			<option v-for="genres in genress" :value="genres.types">{{genres.graduates}}</option>  
+   			</select> 
+   			<label for="creator">人员职务:</label>
+   			<select v-model="selectedd"  class="form-control"> 
+   					<option value="">请选择</option> 
+        			<option v-for="position in positions" :value="position.labor">{{position.work}}</option>  
+   			</select>
+   			
+
+			
+					
+					
+					
+					
+		<button style="margin-top: 2px;margin-left:15px" type="button" class="btn btn-primary abbBtn btn-sm" @click="queryByName" ><i class="fa fa-search"></i>&nbsp;&nbsp;查询</button>
+	</div>
+	</form> 
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div> 
+</div>
+
+<script src="${rc.contextPath}/statics/libs/moment.js"></script>
+<script src="${rc.contextPath}/statics/libs/daterangepickerNew.js"></script>   
+<script src="${rc.contextPath}/js/sys/parksonSettingData.js?_${date.systemTime}"></script>  
+<script src="${rc.contextPath}/statics/libs/bootstrap-select.min.js"></script>
+</body>
+</html>

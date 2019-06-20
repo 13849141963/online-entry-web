@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>体检报告Json详细数据</title>
+#parse("sys/header.html")
+</head>
+<body>
+<div id="rrapp">
+	<div class="form-group">
+			<div class=" control-label"></div> 
+            <input type="button" class="btn btn-warning" @click="back" value="返回"/>
+	</div> 
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
+
+<script src="${rc.contextPath}/statics/libs/moment.js"></script>
+<script src="${rc.contextPath}/statics/libs/daterangepickerNew.js"></script>  
+<script src="${rc.contextPath}/js/base/phReportLogHeResult.js?_${date.systemTime}"></script>  
+
+</body>
+</html>
